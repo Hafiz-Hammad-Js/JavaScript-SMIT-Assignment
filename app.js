@@ -1,42 +1,59 @@
-var chacha = document.getElementById("head")
-var H1 = document.getElementById("result")
+let h1 = document.getElementById("head")
+let h2 = document.getElementById("result")
+let div = document.getElementById("div")
+let check = document.getElementById("helo")
 
-var userValue = +prompt("Agar app ko apna number dene hai to du warna me default 100 se start hon ga")
-var defaultValue = 100
+let result;
 
-if (userValue == "") {
 
-    var result = setInterval(function () {
-        defaultValue--
 
-        chacha.innerHTML = defaultValue
+let sec = 0
+let min = 0;
+let hr = 0;
 
-        if (defaultValue == 0) {
+result = setInterval(() => {
 
-            H1.innerText = "Thanks your Time has finished"
-            console.log(H1.innerHTML)
+    let currentTime = new Date()
 
-            clearInterval(result)
-        }
+    let date = currentTime.getDate()
+    let month = 10
+    let year = currentTime.getFullYear()
 
-    }, 1000)
-}
+    let currentHr = currentTime.getHours()
+    let currentMin = currentTime.getMinutes()
+    let currentSec = currentTime.getSeconds()
 
-else {
+    hr = currentHr
+    min = currentMin
+    sec = currentSec
 
-    var result = setInterval(function () {
-        userValue--
-        chacha.innerHTML = userValue
-        console.log(userValue)
-        if (userValue == 0) {
-            clearInterval(result)
-            H1.innerText = "Thanks your Time has finished"
-        }
-    }, 1000)
+    if (hr > 12) {
+       
+        hr = hr - 12
+    }
 
-}
+    let current01 = sec < 10 ? `0${sec}` : sec
+    let minWork = min < 10 ? "0" + min : min
+    let hrWork = hr < 10 ? "0" + hr : hr
 
-function off () {
-    clearInterval(result)
-}
+    h1.innerHTML = hrWork + " : " + minWork + " : " + current01
+    h2.innerHTML = date + " / " + month + " / " + year
+
+    if (hr == 0 && min == 0 && sec == 0) {
+        check.innerHTML = `
+           
+            <div class='imgg'>
+                <img src="https://www.funimada.com/assets/images/cards/big/hammad-3.gif" width="700px"/>
+            </div>
+
+            
+        `;
+   
+    }
+    
+}, 1000)
+
+
+
+
 
