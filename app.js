@@ -45,7 +45,6 @@ result = setInterval(() => {
             <div class='imgg'>
                 <img src="https://www.funimada.com/assets/images/cards/big/hammad-3.gif" width="700px"/>
             </div>
-
             
         `;
    
